@@ -24,6 +24,7 @@ export default function ScrollConstructionHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const stageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const finalRef = useRef<HTMLDivElement>(null);
+  const scrimRef = useRef<HTMLDivElement>(null);
 
   const [videoReady, setVideoReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
@@ -31,9 +32,11 @@ export default function ScrollConstructionHero() {
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
 
   useEffect(() => {
+    // La versión ligera solo en pantallas pequeñas o equipos muy limitados;
+    // en escritorio siempre se sirve la versión de máxima calidad.
     const smallScreen = window.matchMedia("(max-width: 768px)").matches;
     const lowPower =
-      typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
+      typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 2;
     setVideoSrc(smallScreen || lowPower ? site.hero.videoSrcMobile : site.hero.videoSrc);
   }, []);
 
@@ -50,38 +53,49 @@ export default function ScrollConstructionHero() {
 
     const state = { progress: 0, currentTime: 0, duration: 0 };
 
+    // Suavizado coseno para fundidos sin cortes perceptibles.
+    const easeInOut = (t: number) => 0.5 - 0.5 * Math.cos(Math.PI * Math.min(Math.max(t, 0), 1));
+
     const applyOverlays = () => {
       const p = state.progress;
-      const fade = 0.045;
+      const fade = 0.06;
 
       heroStages.forEach((stage, i) => {
         const el = stageRefs.current[i];
         if (!el) return;
         let opacity = 0;
         if (p >= stage.at && p <= stage.until) {
-          const fadeIn = Math.min((p - stage.at) / fade, 1);
-          const fadeOut = Math.min((stage.until - p) / fade, 1);
+          const fadeIn = easeInOut((p - stage.at) / fade);
+          const fadeOut = easeInOut((stage.until - p) / fade);
           opacity = Math.min(fadeIn, fadeOut);
         }
         el.style.opacity = String(opacity);
-        el.style.transform = `translateY(${(1 - opacity) * 22}px)`;
+        el.style.transform = `translateY(${(1 - opacity) * 26}px)`;
       });
+
+      // Cierre: el video se oscurece y se acerca sutilmente mientras
+      // aparece la marca, para un final más cinematográfico.
+      const t = easeInOut((p - 0.88) / 0.09);
 
       const finalEl = finalRef.current;
       if (finalEl) {
-        const t = Math.min(Math.max((p - 0.9) / 0.08, 0), 1);
         finalEl.style.opacity = String(t);
-        finalEl.style.transform = `translateY(${(1 - t) * 26}px)`;
+        finalEl.style.transform = `translateY(${(1 - t) * 30}px)`;
         finalEl.style.pointerEvents = t > 0.6 ? "auto" : "none";
       }
+
+      const scrim = scrimRef.current;
+      if (scrim) scrim.style.opacity = String(t * 0.55);
+
+      video.style.transform = `scale(${1 + t * 0.05})`;
     };
 
     const tick = () => {
       if (disposed) return;
       if (state.duration > 0) {
         const target = state.progress * state.duration;
-        state.currentTime += (target - state.currentTime) * 0.14;
-        if (Math.abs(video.currentTime - state.currentTime) > 0.015) {
+        state.currentTime += (target - state.currentTime) * 0.09;
+        if (Math.abs(video.currentTime - state.currentTime) > 0.01) {
           try {
             video.currentTime = state.currentTime;
           } catch {
@@ -188,11 +202,19 @@ export default function ScrollConstructionHero() {
             disablePictureInPicture
             aria-hidden="true"
             tabIndex={-1}
+            style={{ willChange: "transform", transformOrigin: "center 60%" }}
           />
         )}
 
-        {/* Escurecido para legibilidad */}
+        {/* Oscurecido para legibilidad */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/75 via-ink-950/5 to-ink-950/30" />
+
+        {/* Velo de cierre: se intensifica cuando aparece la marca */}
+        <div
+          ref={scrimRef}
+          className="pointer-events-none absolute inset-0 bg-ink-950 opacity-0"
+          style={{ willChange: "opacity" }}
+        />
 
         {/* Textos de cada etapa */}
         {heroStages.map((stage, i) => (

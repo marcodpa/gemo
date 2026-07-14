@@ -44,11 +44,13 @@ public/         Video del hero e imágenes optimizadas (WebP)
 - GSAP ScrollTrigger reporta el progreso del scroll; `video.currentTime` se interpola en un único `requestAnimationFrame` (sin renders de React por píxel).
 - Espera `loadedmetadata`, muestra loader + poster, y hace *fallback* a imagen estática si el video falla o si el usuario tiene `prefers-reduced-motion`.
 - En móviles/equipos lentos carga `construccion-movil.mp4` (960px, 1.5 MB).
-- Los videos fueron re-codificados con GOP corto (`-g 8`) para que el *scrubbing* sea fluido. Si sustituyes el video, re-codifícalo igual:
+- Los videos fueron re-codificados para *scrubbing* fluido: interpolación de movimiento a 48 fps, escalado Lanczos a 1080p con nitidez y grano fino, y keyframes cada 4 frames. Si sustituyes el video, usa la misma receta:
 
 ```bash
-ffmpeg -i origen.mp4 -an -vf "scale='min(1920,iw)':-2" -c:v libx264 -crf 22 \
-  -g 8 -keyint_min 8 -sc_threshold 0 -movflags +faststart public/video/construccion.mp4
+ffmpeg -i origen.mp4 -an \
+  -vf "minterpolate=mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=48,scale=1920:1080:flags=lanczos,unsharp=5:5:0.35:5:5:0,noise=alls=3:allf=t" \
+  -c:v libx264 -crf 21 -preset slow -g 4 -keyint_min 4 -sc_threshold 0 \
+  -pix_fmt yuv420p -movflags +faststart public/video/construccion.mp4
 ```
 
 ## Formulario de contacto

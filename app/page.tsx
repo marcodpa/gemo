@@ -5,9 +5,10 @@ import ScrollConstructionHero from "@/components/ScrollConstructionHero";
 import Reveal from "@/components/Reveal";
 import { services } from "@/data/services";
 import { projects, statusLabels } from "@/data/projects";
+import { testimonials } from "@/data/testimonials";
 
 export default function HomePage() {
-  const featured = projects[0];
+  const featuredProjects = projects.slice(0, 2);
 
   return (
     <main>
@@ -58,39 +59,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Proyecto destacado */}
-      <section aria-label="Proyecto destacado" className="relative">
-        <div className="relative h-[80svh] min-h-[540px] w-full overflow-hidden">
-          <Image
-            src="/images/cielo-conjunto.webp"
-            alt="Vista aérea del conjunto residencial Portal del Rosario al atardecer"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/15 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0">
-            <div className="mx-auto max-w-[1320px] px-5 pb-14 lg:px-10">
-              <Reveal>
-                <p className="text-sm font-medium text-cyan-400">
-                  {statusLabels[featured.status]} · {featured.location}
-                </p>
-                <h2 className="mt-2 font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
-                  {featured.name}
-                </h2>
-                <p className="mt-4 max-w-xl text-lg text-white/80">{featured.summary}</p>
-                <Link
-                  href={`/proyectos/${featured.id}`}
-                  className="mt-8 inline-block rounded-full bg-white px-7 py-3.5 font-semibold text-ink-900 transition hover:bg-white/90 active:scale-[0.98]"
-                >
-                  Ver proyecto
-                </Link>
-              </Reveal>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Índice de servicios */}
       <section aria-label="Servicios" className="bg-paper py-24 md:py-36">
         <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
@@ -120,6 +88,100 @@ export default function HomePage() {
                 </Link>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proyectos destacados */}
+      <section aria-label="Proyectos destacados" className="bg-stone-100 py-24 md:py-32">
+        <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
+          <Reveal className="flex flex-wrap items-end justify-between gap-6">
+            <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
+              Proyectos destacados
+            </h2>
+            <Link
+              href="/proyectos"
+              className="group inline-flex items-center gap-2.5 pb-1.5 font-semibold text-petrol-600 transition hover:text-petrol-700"
+            >
+              Ver todos los proyectos
+              <ArrowRight
+                size={18}
+                weight="bold"
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+          </Reveal>
+
+          <div className="mt-14 grid gap-x-8 gap-y-14 md:grid-cols-2">
+            {featuredProjects.map((project, i) => (
+              <Reveal key={project.id} delay={i * 100} className={i === 1 ? "md:mt-16" : ""}>
+                <Link href={`/proyectos/${project.id}`} className="group block">
+                  <div className="relative overflow-hidden rounded-xl">
+                    <Image
+                      src={project.image}
+                      alt={`Proyecto ${project.name}`}
+                      width={1400}
+                      height={1050}
+                      className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      sizes="(min-width: 768px) 48vw, 100vw"
+                    />
+                  </div>
+                  <div className="mt-5 flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-display text-2xl font-bold tracking-tight transition-colors group-hover:text-petrol-600">
+                        {project.name}
+                      </h3>
+                      <p className="mt-1.5 text-muted">
+                        {project.type} · {project.location}
+                      </p>
+                    </div>
+                    <span className="mt-1.5 shrink-0 rounded-full bg-paper px-3.5 py-1.5 text-xs font-semibold text-body">
+                      {statusLabels[project.status]}
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nuestros clientes */}
+      <section aria-label="Nuestros clientes" className="bg-paper py-24 md:py-32">
+        <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
+          <Reveal>
+            <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
+              Nuestros clientes
+            </h2>
+            <p className="mt-4 max-w-xl text-muted">
+              Familias que ya viven en espacios construidos por GEMO. Testimonios de ejemplo,
+              serán sustituidos por los reales.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-12 md:grid-cols-[1.5fr_1fr] md:gap-16">
+            <Reveal className="flex flex-col justify-between border-l-4 border-cyan-400 pl-7 md:pl-9">
+              <blockquote className="font-display text-2xl leading-snug font-semibold tracking-tight md:text-4xl">
+                &ldquo;{testimonials[0].quote}&rdquo;
+              </blockquote>
+              <p className="mt-7 text-muted">
+                <span className="font-semibold text-body">{testimonials[0].name}</span>
+                <br />
+                {testimonials[0].context}
+              </p>
+            </Reveal>
+            <div className="flex flex-col gap-10">
+              {testimonials.slice(1).map((t, i) => (
+                <Reveal key={t.name} delay={(i + 1) * 90} className="border-t border-line pt-7">
+                  <blockquote className="text-lg leading-relaxed text-body">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <p className="mt-4 text-sm text-muted">
+                    <span className="font-semibold text-body">{t.name}</span> · {t.context}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
