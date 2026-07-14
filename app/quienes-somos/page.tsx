@@ -59,26 +59,47 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* Historia */}
-      <section className="mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10">
-        <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
-          <Reveal>
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-              Dos décadas cumpliendo lo que prometemos
-            </h2>
-          </Reveal>
-          <Reveal delay={100} className="space-y-6 text-lg leading-relaxed text-body">
-            <p>
-              Nos caracterizamos por trabajar con responsabilidad, transparencia y compromiso,
-              desarrollando proyectos pensados para responder a las necesidades reales de nuestros
-              clientes y contribuir al crecimiento de las comunidades donde estamos presentes.
-            </p>
-            <p>
-              Más que construir viviendas, construimos oportunidades para que cada familia pueda
-              acceder a un patrimonio propio con planes de pago accesibles, sin trámites bancarios
-              y con el respaldo de una empresa comprometida con cumplir lo que promete.
-            </p>
-          </Reveal>
+      {/* Historia: detalle de obra de fondo, arriba a la izquierda */}
+      <section className="relative overflow-hidden bg-white">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-0 left-0 hidden w-[24rem] max-w-[38vw] md:block"
+        >
+          <Image
+            src="/images/mano-mezcla-blanco.webp"
+            alt=""
+            width={843}
+            height={1264}
+            className="h-auto w-full"
+            sizes="384px"
+          />
+          {/* Fundidos para disimular los bordes de la foto y mantener
+              legible el texto que pueda superponerse */}
+          <div className="absolute inset-0 bg-white/25" />
+          <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-white to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white to-transparent" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10">
+          <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
+            <Reveal>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
+                Dos décadas cumpliendo lo que prometemos
+              </h2>
+            </Reveal>
+            <Reveal delay={100} className="space-y-6 text-lg leading-relaxed text-body">
+              <p>
+                Nos caracterizamos por trabajar con responsabilidad, transparencia y compromiso,
+                desarrollando proyectos pensados para responder a las necesidades reales de nuestros
+                clientes y contribuir al crecimiento de las comunidades donde estamos presentes.
+              </p>
+              <p>
+                Más que construir viviendas, construimos oportunidades para que cada familia pueda
+                acceder a un patrimonio propio con planes de pago accesibles, sin trámites bancarios
+                y con el respaldo de una empresa comprometida con cumplir lo que promete.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 
