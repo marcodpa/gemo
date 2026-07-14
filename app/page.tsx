@@ -59,11 +59,11 @@ export default function HomePage() {
       </section>
 
       {/* Índice de servicios: lista a la izquierda y foto del equipo a la
-          derecha ocupando toda la altura del contenedor, fundida con el
-          fondo blanco. */}
-      <section aria-label="Servicios" className="bg-white py-24 md:py-32">
-        <div className="mx-auto grid max-w-[1320px] gap-14 px-5 lg:grid-cols-[1.35fr_1fr] lg:gap-20 lg:px-10">
-          <div>
+          derecha, sangrada hasta el borde derecho e inferior de la sección
+          y fundida con el fondo blanco. */}
+      <section aria-label="Servicios" className="relative overflow-hidden bg-white pt-24 md:pt-32">
+        <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
+          <div className="pb-16 md:pb-24 lg:w-[54%] lg:pb-32">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
                 Lo que hacemos
@@ -100,24 +100,23 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-
-          <Reveal delay={100} className="relative">
-            <div className="relative h-72 sm:h-96 lg:absolute lg:inset-0 lg:h-full">
-              <Image
-                src="/images/obrero-vaciado.webp"
-                alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 38vw, 100vw"
-              />
-              {/* Fundido superior: la foto nace del blanco del contenedor */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-white via-white/55 to-transparent"
-              />
-            </div>
-          </Reveal>
         </div>
+
+        {/* Foto pegada al borde derecho e inferior, sin margen */}
+        <Reveal className="relative h-72 w-full sm:h-96 lg:absolute lg:top-20 lg:right-0 lg:bottom-0 lg:h-auto lg:w-[41%]">
+          <Image
+            src="/images/obrero-vaciado.webp"
+            alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 41vw, 100vw"
+          />
+          {/* Fundido superior: la foto nace del blanco del contenedor */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-white via-white/55 to-transparent"
+          />
+        </Reveal>
       </section>
 
       {/* Proyectos destacados */}
