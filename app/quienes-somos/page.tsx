@@ -63,7 +63,7 @@ export default function QuienesSomosPage() {
       <section className="relative overflow-hidden bg-white">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-0 left-0 hidden w-[24rem] max-w-[38vw] md:block"
+          className="pointer-events-none absolute top-0 left-0 hidden w-[17rem] max-w-[28vw] md:block"
         >
           <Image
             src="/images/mano-mezcla-blanco.webp"
@@ -71,13 +71,8 @@ export default function QuienesSomosPage() {
             width={843}
             height={1264}
             className="h-auto w-full"
-            sizes="384px"
+            sizes="272px"
           />
-          {/* Fundidos para disimular los bordes de la foto y mantener
-              legible el texto que pueda superponerse */}
-          <div className="absolute inset-0 bg-white/25" />
-          <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-white to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white to-transparent" />
         </div>
 
         <div className="relative mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10">
