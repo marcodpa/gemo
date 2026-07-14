@@ -58,28 +58,11 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* Índice de servicios: foto del equipo a la izquierda ocupando toda
-          la altura del contenedor, fundida con el fondo blanco; lista a la
-          derecha. */}
+      {/* Índice de servicios: lista a la izquierda y foto del equipo a la
+          derecha ocupando toda la altura del contenedor, fundida con el
+          fondo blanco. */}
       <section aria-label="Servicios" className="bg-white py-24 md:py-32">
-        <div className="mx-auto grid max-w-[1320px] gap-14 px-5 lg:grid-cols-[1fr_1.35fr] lg:gap-20 lg:px-10">
-          <Reveal className="relative order-last lg:order-first">
-            <div className="relative h-72 sm:h-96 lg:absolute lg:inset-0 lg:h-full">
-              <Image
-                src="/images/obrero-vaciado.webp"
-                alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 38vw, 100vw"
-              />
-              {/* Fundido superior: la foto nace del blanco del contenedor */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-white via-white/55 to-transparent"
-              />
-            </div>
-          </Reveal>
-
+        <div className="mx-auto grid max-w-[1320px] gap-14 px-5 lg:grid-cols-[1.35fr_1fr] lg:gap-20 lg:px-10">
           <div>
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
@@ -117,6 +100,23 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+
+          <Reveal delay={100} className="relative">
+            <div className="relative h-72 sm:h-96 lg:absolute lg:inset-0 lg:h-full">
+              <Image
+                src="/images/obrero-vaciado.webp"
+                alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 38vw, 100vw"
+              />
+              {/* Fundido superior: la foto nace del blanco del contenedor */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-white via-white/55 to-transparent"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
