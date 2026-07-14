@@ -102,20 +102,24 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Foto pegada al borde derecho e inferior, sin margen */}
-        <Reveal className="relative h-72 w-full sm:h-96 lg:absolute lg:top-20 lg:right-0 lg:bottom-0 lg:h-auto lg:w-[41%]">
-          <Image
-            src="/images/obrero-vaciado.webp"
-            alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
-            fill
-            className="object-cover"
-            sizes="(min-width: 1024px) 41vw, 100vw"
-          />
-          {/* Fundido superior: la foto nace del blanco del contenedor */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-white via-white/55 to-transparent"
-          />
+        {/* Foto completa (sin recorte), anclada abajo a la derecha del
+            contenedor y pegada a ambos bordes */}
+        <Reveal className="relative flex justify-end lg:absolute lg:right-0 lg:bottom-0 lg:w-[40%]">
+          <div className="relative w-4/5 sm:w-3/5 lg:w-full lg:max-w-[500px]">
+            <Image
+              src="/images/obrero-vaciado.webp"
+              alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
+              width={843}
+              height={1264}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 500px, 60vw"
+            />
+            {/* Fundido superior: la foto nace del blanco del contenedor */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 h-[24%] bg-gradient-to-b from-white via-white/55 to-transparent"
+            />
+          </div>
         </Reveal>
       </section>
 
