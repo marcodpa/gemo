@@ -63,7 +63,7 @@ export default function HomePage() {
           y fundida con el fondo blanco. */}
       <section aria-label="Servicios" className="relative overflow-hidden bg-white pt-24 md:pt-32">
         <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
-          <div className="pb-16 md:pb-24 lg:w-[54%] lg:pb-32">
+          <div className="pb-10 lg:w-[54%] lg:pb-0">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
                 Lo que hacemos
