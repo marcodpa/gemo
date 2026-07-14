@@ -61,7 +61,7 @@ export default function HomePage() {
       {/* Índice de servicios: lista a la izquierda y foto del equipo a la
           derecha, sangrada hasta el borde derecho e inferior de la sección
           y fundida con el fondo blanco. */}
-      <section aria-label="Servicios" className="relative overflow-hidden bg-white pt-24 md:pt-32">
+      <section aria-label="Servicios" className="relative overflow-hidden bg-white pt-6 md:pt-10">
         <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
           <div className="pb-10 lg:w-[54%] lg:pb-0">
             <Reveal>
@@ -73,7 +73,7 @@ export default function HomePage() {
                 prometen.
               </p>
             </Reveal>
-            <div className="mt-12">
+            <div className="mt-6">
               {services.map((service, i) => (
                 <Reveal key={service.id} delay={i * 40}>
                   <Link
