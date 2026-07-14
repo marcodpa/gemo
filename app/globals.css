@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  /* ============================================================
+     GEMO Construcciones - Sistema de diseño
+     Colores muestreados del logotipo oficial:
+     petróleo #0e6b88 · cian #1fa9c9 · amarillo #f4ef50
+     ============================================================ */
+  --color-ink-950: #0d2029;
+  --color-ink-900: #122b36;
+  --color-ink-800: #173845;
+
+  --color-petrol-700: #0d5872;
+  --color-petrol-600: #0e6b88;
+  --color-petrol-500: #14829f;
+  --color-petrol-100: #ddedf3;
+
+  --color-cyan-400: #1fa9c9;
+
+  --color-sun-300: #f4ef50;
+
+  --color-paper: #fafaf9;
+  --color-stone-100: #f0f2f1;
+  --color-line: #e2e6e5;
+
+  --color-body: #1a2e37;
+  --color-muted: #5a6b72;
+
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-dmsans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+  Regla de radios del proyecto (consistente en todo el sitio):
+  - Elementos interactivos (botones, filtros): píldora (rounded-full)
+  - Medios y superficies (fotos, paneles): rounded-xl (12px)
+  - Campos de formulario: rounded-lg (8px)
+*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-petrol-600);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: var(--color-petrol-600);
+  color: #fff;
+}
+
+/* Revelado al entrar en pantalla (respeta prefers-reduced-motion) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
