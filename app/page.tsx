@@ -105,7 +105,7 @@ export default function HomePage() {
         {/* Foto completa (sin recorte), anclada abajo a la derecha.
             En móvil queda de fondo del contenedor, detrás del texto. */}
         <Reveal className="pointer-events-none absolute right-0 bottom-0 flex w-[78%] justify-end sm:w-[55%] lg:w-[40%]">
-          <div className="relative w-full opacity-40 lg:max-w-[500px] lg:opacity-100">
+          <div className="relative w-full opacity-85 lg:max-w-[500px] lg:opacity-100">
             <Image
               src="/images/obrero-vaciado.webp"
               alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
@@ -119,10 +119,11 @@ export default function HomePage() {
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-0 h-[24%] bg-gradient-to-b from-white via-white/55 to-transparent"
             />
-            {/* En móvil, velo lateral para mantener legible el texto encima */}
+            {/* En móvil, velo suave solo en el borde izquierdo para que el
+                texto que se superpone siga siendo legible */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/35 to-transparent lg:hidden"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/75 via-white/15 to-transparent lg:hidden"
             />
           </div>
         </Reveal>
