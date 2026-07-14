@@ -31,31 +31,33 @@ const principles = [
 export default function QuienesSomosPage() {
   return (
     <main className="bg-paper">
-      {/* Encabezado de página */}
-      <section className="mx-auto max-w-[1320px] px-5 pt-36 pb-16 md:pt-44 md:pb-20 lg:px-10">
-        <Reveal>
-          <h1 className="max-w-3xl font-display text-4xl leading-[1.08] font-extrabold tracking-tight md:text-6xl">
-            Más que viviendas, construimos patrimonio.
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
-            Somos una empresa venezolana dedicada al desarrollo de proyectos inmobiliarios y de
-            infraestructura, con más de 20 años de trayectoria construyendo espacios que generan
-            bienestar, seguridad y valor para las familias.
-          </p>
-        </Reveal>
-      </section>
-
-      <Reveal className="mx-auto max-w-[1320px] px-5 lg:px-10">
+      {/* Hero de página: la obra a pantalla completa con el titular encima */}
+      <section className="relative flex min-h-[72svh] items-end overflow-hidden">
         <Image
           src="/images/obra-techo.webp"
           alt="Equipo de GEMO Construcciones trabajando en el techo de una vivienda"
-          width={1600}
-          height={1066}
+          fill
           priority
-          className="aspect-[21/9] w-full rounded-xl object-cover"
-          sizes="(min-width: 1320px) 1240px, 100vw"
+          className="object-cover"
+          sizes="100vw"
         />
-      </Reveal>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-ink-950/35"
+        />
+        <div className="relative mx-auto w-full max-w-[1320px] px-5 pt-44 pb-16 md:pb-20 lg:px-10">
+          <Reveal>
+            <h1 className="max-w-3xl font-display text-4xl leading-[1.08] font-extrabold tracking-tight text-white md:text-6xl">
+              Más que viviendas, construimos patrimonio.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
+              Somos una empresa venezolana dedicada al desarrollo de proyectos inmobiliarios y de
+              infraestructura, con más de 20 años de trayectoria construyendo espacios que generan
+              bienestar, seguridad y valor para las familias.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       {/* Historia */}
       <section className="mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10">
