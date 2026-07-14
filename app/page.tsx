@@ -63,7 +63,7 @@ export default function HomePage() {
           y fundida con el fondo blanco. */}
       <section aria-label="Servicios" className="relative overflow-hidden bg-white pt-6 md:pt-10">
         <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
-          <div className="pb-10 lg:w-[54%] lg:pb-0">
+          <div className="relative z-10 pb-10 lg:w-[54%] lg:pb-0">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
                 Lo que hacemos
@@ -102,10 +102,10 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Foto completa (sin recorte), anclada abajo a la derecha del
-            contenedor y pegada a ambos bordes */}
-        <Reveal className="relative flex justify-end lg:absolute lg:right-0 lg:bottom-0 lg:w-[40%]">
-          <div className="relative w-4/5 sm:w-3/5 lg:w-full lg:max-w-[500px]">
+        {/* Foto completa (sin recorte), anclada abajo a la derecha.
+            En móvil queda de fondo del contenedor, detrás del texto. */}
+        <Reveal className="pointer-events-none absolute right-0 bottom-0 flex w-[78%] justify-end sm:w-[55%] lg:w-[40%]">
+          <div className="relative w-full opacity-40 lg:max-w-[500px] lg:opacity-100">
             <Image
               src="/images/obrero-vaciado.webp"
               alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
@@ -118,6 +118,11 @@ export default function HomePage() {
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-0 h-[24%] bg-gradient-to-b from-white via-white/55 to-transparent"
+            />
+            {/* En móvil, velo lateral para mantener legible el texto encima */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/35 to-transparent lg:hidden"
             />
           </div>
         </Reveal>
