@@ -73,6 +73,9 @@ export default function QuienesSomosPage() {
             className="h-auto w-full"
             sizes="272px"
           />
+          {/* Degradados muy ligeros para disimular el corte de la foto */}
+          <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white/90 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/80 to-transparent" />
         </div>
 
         <div className="relative mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10">
