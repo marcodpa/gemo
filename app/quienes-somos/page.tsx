@@ -63,7 +63,7 @@ export default function QuienesSomosPage() {
       <section className="relative overflow-hidden bg-white">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-0 left-0 hidden w-[17rem] max-w-[28vw] md:block"
+          className="pointer-events-none absolute right-0 bottom-0 hidden w-[17rem] max-w-[28vw] md:block"
         >
           <Image
             src="/images/mano-mezcla-blanco.webp"
