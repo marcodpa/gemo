@@ -14,14 +14,15 @@ export default function HomePage() {
     <main>
       <ScrollConstructionHero />
 
-      {/* Presentación editorial */}
-      <section aria-label="Presentación de la empresa" className="bg-paper py-24 md:py-36">
-        <div className="mx-auto grid max-w-[1320px] items-center gap-14 px-5 md:grid-cols-[1.15fr_1fr] md:gap-20 lg:px-10">
+      {/* Presentación editorial: el texto vive en el cielo blanco de la
+          imagen y el conjunto residencial queda anclado al fondo. */}
+      <section aria-label="Presentación de la empresa" className="overflow-hidden bg-white pt-24 md:pt-32">
+        <div className="relative z-10 mx-auto max-w-3xl px-5 text-center">
           <Reveal>
             <h2 className="font-display text-3xl leading-[1.12] font-bold tracking-tight md:text-5xl">
               Una empresa venezolana que lleva más de 20 años convirtiendo terrenos en comunidades.
             </h2>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted">
+            <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-muted">
               Desarrollamos proyectos residenciales, comerciales y de infraestructura con
               responsabilidad y transparencia. Y los acercamos a las familias con planes de pago
               directos, sin trámites bancarios.
@@ -38,57 +39,84 @@ export default function HomePage() {
               />
             </Link>
           </Reveal>
-          <Reveal delay={120} className="relative">
-            <Image
-              src="/images/about.webp"
-              alt="Vecina caminando por una calle del conjunto Portal del Rosario"
-              width={1400}
-              height={933}
-              className="w-full rounded-xl object-cover md:aspect-[4/5]"
-              sizes="(min-width: 768px) 44vw, 100vw"
-            />
-            <Image
-              src="/images/detalle-mezcla.webp"
-              alt="Detalle del trabajo de albañilería en obra"
-              width={1200}
-              height={800}
-              className="absolute -bottom-10 -left-8 hidden w-52 rounded-xl border-4 border-paper object-cover shadow-lg md:block lg:w-64"
-              sizes="260px"
-            />
-          </Reveal>
         </div>
+
+        <Reveal className="relative mx-auto -mt-2 max-w-[1600px] md:-mt-12 lg:-mt-16">
+          <Image
+            src="/images/equipo-calle.webp"
+            alt="Asesora de GEMO en la calle principal de un conjunto residencial en construcción"
+            width={1376}
+            height={768}
+            className="w-full"
+            sizes="(min-width: 1600px) 1600px, 100vw"
+          />
+          {/* Fundido superior para que la foto nazca del blanco del contenedor */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-white via-white/60 to-transparent"
+          />
+        </Reveal>
       </section>
 
-      {/* Índice de servicios */}
-      <section aria-label="Servicios" className="bg-paper py-24 md:py-36">
-        <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
-          <Reveal>
-            <h2 className="max-w-2xl font-display text-3xl font-bold tracking-tight md:text-5xl">
-              Lo que hacemos
-            </h2>
-          </Reveal>
-          <div className="mt-14">
-            {services.map((service, i) => (
-              <Reveal key={service.id} delay={i * 40}>
-                <Link
-                  href={`/servicios#${service.id}`}
-                  className="group grid items-baseline gap-2 border-t border-line py-7 transition-colors last:border-b hover:bg-stone-100 md:grid-cols-[90px_1.1fr_1.6fr_60px] md:gap-6 md:px-4"
-                >
-                  <span className="font-display text-sm font-semibold text-muted">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-display text-xl font-bold tracking-tight transition-colors group-hover:text-petrol-600 md:text-2xl">
-                    {service.title}
-                  </h3>
-                  <p className="leading-relaxed text-muted">{service.description}</p>
-                  <ArrowRight
-                    size={22}
-                    className="hidden justify-self-end text-petrol-600 opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100 md:block"
-                  />
-                </Link>
-              </Reveal>
-            ))}
+      {/* Índice de servicios: lista a la izquierda, foto del equipo a la
+          derecha fija durante el recorrido, fundida con el fondo blanco. */}
+      <section aria-label="Servicios" className="bg-white py-24 md:py-32">
+        <div className="mx-auto grid max-w-[1320px] gap-14 px-5 lg:grid-cols-[1.35fr_1fr] lg:gap-20 lg:px-10">
+          <div>
+            <Reveal>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
+                Lo que hacemos
+              </h2>
+              <p className="mt-4 max-w-lg text-muted">
+                Seis frentes de trabajo, un mismo compromiso: entregar espacios que valen lo que
+                prometen.
+              </p>
+            </Reveal>
+            <div className="mt-12">
+              {services.map((service, i) => (
+                <Reveal key={service.id} delay={i * 40}>
+                  <Link
+                    href={`/servicios#${service.id}`}
+                    className="group flex items-center gap-6 border-t border-line py-6 transition-all last:border-b hover:pl-3"
+                  >
+                    <span className="font-display text-sm font-semibold text-muted transition-colors group-hover:text-cyan-400">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold tracking-tight transition-colors group-hover:text-petrol-600 md:text-2xl">
+                        {service.title}
+                      </h3>
+                      <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted md:text-base">
+                        {service.description}
+                      </p>
+                    </div>
+                    <ArrowRight
+                      size={22}
+                      className="shrink-0 text-petrol-600 opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100"
+                    />
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
           </div>
+
+          <Reveal delay={120} className="relative">
+            <div className="lg:sticky lg:top-24">
+              <Image
+                src="/images/obrero-vaciado.webp"
+                alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
+                width={843}
+                height={1264}
+                className="mx-auto w-full max-w-md lg:max-w-none"
+                sizes="(min-width: 1024px) 38vw, 28rem"
+              />
+              {/* Fundido superior: la foto nace del blanco del contenedor */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-white via-white/55 to-transparent"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
