@@ -5,3 +5,8 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 _fotos_drive/
+
+.agents/
+.claude/
+skills-lock.json
+AGENTS.md
