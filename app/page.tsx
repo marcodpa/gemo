@@ -125,6 +125,12 @@ export default function HomePage() {
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/75 via-white/15 to-transparent lg:hidden"
             />
+            {/* En escritorio, degradado lateral que disimula la transición
+                entre el fondo blanco y la foto */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 hidden w-2/5 bg-gradient-to-r from-white to-transparent lg:block"
+            />
           </div>
         </Reveal>
       </section>
