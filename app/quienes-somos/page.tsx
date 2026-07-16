@@ -1,26 +1,26 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "QuiÃ©nes somos",
+  title: "Quiénes somos",
   description:
-    "GEMO Construcciones es una empresa venezolana con mÃ¡s de 20 aÃ±os de trayectoria desarrollando proyectos inmobiliarios y de infraestructura que generan bienestar, seguridad y valor para las familias.",
+    "GEMO Construcciones es una empresa venezolana con más de 20 años de trayectoria desarrollando proyectos inmobiliarios y de infraestructura que generan bienestar, seguridad y valor para las familias.",
 };
 
 const principles = [
   {
     title: "Responsabilidad",
-    text: "Cada obra se planifica y se ejecuta con supervisiÃ³n tÃ©cnica permanente. Cumplimos cronogramas y cumplimos lo que prometemos.",
+    text: "Cada obra se planifica y se ejecuta con supervisión técnica permanente. Cumplimos cronogramas y cumplimos lo que prometemos.",
   },
   {
     title: "Transparencia",
-    text: "Condiciones claras desde el primer dÃ­a: sabes quÃ© recibes, cuÃ¡ndo lo recibes y cuÃ¡nto pagas, sin letras pequeÃ±as.",
+    text: "Condiciones claras desde el primer día: sabes qué recibes, cuándo lo recibes y cuánto pagas, sin letras pequeñas.",
   },
   {
-    title: "CercanÃ­a",
-    text: "Trabajamos para familias reales. Te acompaÃ±amos durante todo el proceso, desde la primera visita hasta la entrega de llaves.",
+    title: "Cercanía",
+    text: "Trabajamos para familias reales. Te acompañamos durante todo el proceso, desde la primera visita hasta la entrega de llaves.",
   },
   {
     title: "Comunidad",
@@ -31,7 +31,7 @@ const principles = [
 export default function QuienesSomosPage() {
   return (
     <main className="bg-paper">
-      {/* Hero de pÃ¡gina: la obra a pantalla completa con el titular encima */}
+      {/* Hero de página: la obra a pantalla completa con el titular encima */}
       <section className="relative flex min-h-[72svh] items-end overflow-hidden">
         <Image
           src="/images/obra-techo.webp"
@@ -48,7 +48,7 @@ export default function QuienesSomosPage() {
         <div className="relative mx-auto w-full max-w-[1320px] px-5 pt-44 pb-16 md:pb-20 lg:px-10">
           <Reveal>
             <h1 className="max-w-3xl font-display text-4xl leading-[1.08] font-extrabold tracking-tight text-white md:text-6xl">
-              MÃ¡s que viviendas, construimos patrimonio.
+              Más que viviendas, construimos patrimonio.
             </h1>
           </Reveal>
         </div>
@@ -77,13 +77,13 @@ export default function QuienesSomosPage() {
           <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-                Dos dÃ©cadas cumpliendo lo que prometemos
+                Dos décadas cumpliendo lo que prometemos
               </h2>
             </Reveal>
             <Reveal delay={100} className="space-y-6 text-lg leading-relaxed text-body">
               <p>
                 Somos una empresa venezolana dedicada al desarrollo de proyectos inmobiliarios y de
-                infraestructura, con mÃ¡s de 20 aÃ±os de trayectoria construyendo espacios que generan
+                infraestructura, con más de 20 años de trayectoria construyendo espacios que generan
                 bienestar, seguridad y valor para las familias.
               </p>
               <p>
@@ -96,21 +96,21 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* MisiÃ³n y visiÃ³n: el texto vive en el cielo oscuro de la foto y la
+      {/* Misión y visión: el texto vive en el cielo oscuro de la foto y la
           entrada de Portal del Rosario queda anclada al fondo. */}
-      <section aria-label="MisiÃ³n y visiÃ³n" className="overflow-hidden bg-ink-900 pt-24 text-white md:pt-32">
+      <section aria-label="Misión y visión" className="overflow-hidden bg-ink-900 pt-24 text-white md:pt-32">
         <div className="relative z-10 mx-auto grid max-w-[1320px] gap-14 px-5 md:grid-cols-2 md:gap-10 lg:px-10">
           <Reveal>
-            <h2 className="font-display text-2xl font-bold text-cyan-400">MisiÃ³n</h2>
+            <h2 className="font-display text-2xl font-bold text-cyan-400">Misión</h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90 md:text-xl">
               Desarrollar soluciones inmobiliarias y comerciales que impulsen el crecimiento de las
               comunidades y generen valor para nuestros clientes.
             </p>
           </Reveal>
           <Reveal delay={120} className="md:border-l md:border-white/15 md:pl-10">
-            <h2 className="font-display text-2xl font-bold text-cyan-400">VisiÃ³n</h2>
+            <h2 className="font-display text-2xl font-bold text-cyan-400">Visión</h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90 md:text-xl">
-              Ser lÃ­deres en el desarrollo de proyectos inmobiliarios y comerciales que transformen
+              Ser líderes en el desarrollo de proyectos inmobiliarios y comerciales que transformen
               comunidades.
             </p>
           </Reveal>
@@ -133,13 +133,13 @@ export default function QuienesSomosPage() {
         </Reveal>
       </section>
 
-      {/* Principios: composiciÃ³n fotogrÃ¡fica con el texto pintado en la
+      {/* Principios: composición fotográfica con el texto pintado en la
           pared de la obra. El texto alternativo conserva el contenido
           para lectores de pantalla y SEO. */}
       {/* Principios: texto real superpuesto sobre la pared pintada de la
-          obra. En mÃ³vil el texto va arriba y la foto debajo. */}
+          obra. En móvil el texto va arriba y la foto debajo. */}
       <section aria-label="Lo que nos define" className="py-24 md:py-32">
-        {/* VersiÃ³n mÃ³vil: texto en flujo normal */}
+        {/* Versión móvil: texto en flujo normal */}
         <div className="mx-auto max-w-[1320px] px-5 md:hidden">
           <h2 className="font-display text-3xl font-bold tracking-tight">Lo que nos define</h2>
           <div className="mt-8 grid gap-8">
