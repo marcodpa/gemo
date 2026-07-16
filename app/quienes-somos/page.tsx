@@ -56,6 +56,24 @@ export default function QuienesSomosPage() {
 
       {/* Historia: detalle de obra de fondo, arriba a la izquierda */}
       <section className="relative overflow-hidden bg-white">
+        {/* Vaciado de losa: esquina inferior izquierda */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 left-0 hidden w-[19rem] max-w-[30vw] md:block"
+        >
+          <Image
+            src="/images/vaciado-losa.webp"
+            alt=""
+            width={900}
+            height={1488}
+            className="h-auto w-full"
+            sizes="208px"
+          />
+          {/* Degradados muy ligeros para disimular el corte de la foto */}
+          <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white/90 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-1/5 bg-gradient-to-b from-white to-transparent" />
+        </div>
+
         <div
           aria-hidden="true"
           className="pointer-events-none absolute right-0 bottom-0 hidden w-[17rem] max-w-[28vw] md:block"
@@ -73,7 +91,7 @@ export default function QuienesSomosPage() {
           <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/80 to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-[1320px] px-5 py-24 md:py-32 md:pr-[30vw] lg:px-10 lg:pr-80">
+        <div className="relative mx-auto max-w-[1320px] px-5 pt-16 pb-24 md:min-h-[40rem] md:pt-20 md:pr-[30vw] md:pb-28 lg:min-h-[48rem] lg:px-10 lg:pr-80">
           <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
