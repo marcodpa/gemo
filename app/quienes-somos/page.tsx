@@ -183,17 +183,26 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* Cierre */}
-      <section className="border-t border-line">
-        <div className="mx-auto flex max-w-[1320px] flex-col items-start gap-7 px-5 py-20 md:flex-row md:items-center md:justify-between lg:px-10">
+      <section className="relative overflow-hidden">
+        <Image
+          src="/images/calle-atardecer.webp"
+          alt=""
+          aria-hidden="true"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-ink-950/65" />
+        <div className="relative mx-auto flex max-w-[1320px] flex-col items-start gap-7 px-5 py-24 md:flex-row md:items-center md:justify-between md:py-28 lg:px-10">
           <Reveal>
-            <h2 className="max-w-xl font-display text-3xl font-bold tracking-tight md:text-4xl">
+            <h2 className="max-w-xl font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
               Conoce los proyectos que estamos construyendo.
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <Link
               href="/proyectos"
-              className="inline-block rounded-full bg-petrol-600 px-7 py-3.5 font-semibold text-white transition hover:bg-petrol-700 active:scale-[0.98]"
+              className="inline-block rounded-full bg-white px-7 py-3.5 font-semibold text-ink-900 transition hover:bg-white/90 active:scale-[0.98]"
             >
               Ver proyectos
             </Link>
