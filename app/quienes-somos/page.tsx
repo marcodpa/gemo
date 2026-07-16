@@ -136,18 +136,49 @@ export default function QuienesSomosPage() {
       {/* Principios: composición fotográfica con el texto pintado en la
           pared de la obra. El texto alternativo conserva el contenido
           para lectores de pantalla y SEO. */}
+      {/* Principios: texto real superpuesto sobre la pared pintada de la
+          obra. En móvil el texto va arriba y la foto debajo. */}
       <section aria-label="Lo que nos define" className="py-24 md:py-32">
-        <Reveal>
+        {/* Versión móvil: texto en flujo normal */}
+        <div className="mx-auto max-w-[1320px] px-5 md:hidden">
+          <h2 className="font-display text-3xl font-bold tracking-tight">Lo que nos define</h2>
+          <div className="mt-8 grid gap-8">
+            {principles.map((p) => (
+              <div key={p.title} className="border-t border-line pt-5">
+                <h3 className="font-display text-xl font-bold text-petrol-600">{p.title}</h3>
+                <p className="mt-2 leading-relaxed text-muted">{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Reveal className="relative mt-10 md:mt-0">
           <Image
-            src="/images/lo-que-nos-define.webp"
-            alt={`Lo que nos define, pintado sobre la pared de una obra: ${principles
-              .map((p) => `${p.title}: ${p.text}`)
-              .join(" ")}`}
+            src="/images/pared-principios.webp"
+            alt="Equipo de GEMO dando acabados a la pared de una vivienda en obra"
             width={1376}
             height={768}
             className="w-full"
             sizes="100vw"
           />
+          {/* Texto sobre la zona pintada de blanco (solo tablet/escritorio) */}
+          <div className="absolute inset-0 hidden md:block" aria-hidden={false}>
+            <div className="absolute top-[24%] left-[6%] w-[56%]">
+              <h2 className="font-display text-[2.6vw] font-bold tracking-tight text-ink-800">
+                Lo que nos define
+              </h2>
+              <div className="mt-[2.2vw] grid grid-cols-2 gap-x-[3vw] gap-y-[2.4vw]">
+                {principles.map((p, i) => (
+                  <div key={p.title} className={i < 2 ? "border-b border-ink-800/25 pb-[2vw]" : ""}>
+                    <h3 className="font-display text-[1.45vw] font-bold text-petrol-700">
+                      {p.title}
+                    </h3>
+                    <p className="mt-[0.7vw] text-[1vw] leading-[1.5] text-ink-800/85">{p.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </Reveal>
       </section>
 
