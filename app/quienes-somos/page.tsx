@@ -91,7 +91,7 @@ export default function QuienesSomosPage() {
           <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/80 to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-[1320px] px-5 pt-16 pb-24 md:min-h-[40rem] md:pt-20 md:pr-[30vw] md:pb-28 lg:min-h-[48rem] lg:px-10 lg:pr-80">
+        <div className="relative mx-auto max-w-[1320px] px-5 pt-16 pb-24 md:min-h-[40rem] md:pt-20 md:pr-[18vw] md:pb-28 lg:min-h-[48rem] lg:px-10 lg:pr-44">
           <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
@@ -151,12 +151,35 @@ export default function QuienesSomosPage() {
         </Reveal>
       </section>
 
-      {/* Principios: composición fotográfica con el texto pintado en la
-          pared de la obra. El texto alternativo conserva el contenido
-          para lectores de pantalla y SEO. */}
+      {/* Franja cinética con el lema de la marca */}
+      <section aria-label="Lema de GEMO Construcciones" className="overflow-hidden py-12 md:py-16">
+        <div className="marquee-track" aria-hidden="true">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex shrink-0 items-center">
+              {["Construimos espacios", "Creamos oportunidades", "Transformamos comunidades"].map(
+                (frase) => (
+                  <span key={frase} className="flex items-center">
+                    <span
+                      className="font-display text-5xl font-extrabold tracking-tight whitespace-nowrap text-transparent md:text-7xl"
+                      style={{ WebkitTextStroke: "1.5px rgba(14,107,136,0.4)" }}
+                    >
+                      {frase}
+                    </span>
+                    <span className="mx-8 h-3 w-3 shrink-0 rotate-45 bg-sun-300 md:mx-12" />
+                  </span>
+                )
+              )}
+            </div>
+          ))}
+        </div>
+        <p className="sr-only">
+          Construimos espacios. Creamos oportunidades. Transformamos comunidades.
+        </p>
+      </section>
+
       {/* Principios: texto real superpuesto sobre la pared pintada de la
           obra. En móvil el texto va arriba y la foto debajo. */}
-      <section aria-label="Lo que nos define" className="py-24 md:py-32">
+      <section aria-label="Lo que nos define" className="pt-6 pb-24 md:pt-8 md:pb-32">
         {/* Versión móvil: texto en flujo normal */}
         <div className="mx-auto max-w-[1320px] px-5 md:hidden">
           <h2 className="font-display text-3xl font-bold tracking-tight">Lo que nos define</h2>

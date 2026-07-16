@@ -90,3 +90,25 @@ h1, h2, h3, h4 {
     transition: none !important;
   }
 }
+
+/* Franja cinética: el lema se desliza en bucle continuo */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
