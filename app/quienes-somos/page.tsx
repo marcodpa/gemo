@@ -133,21 +133,25 @@ export default function QuienesSomosPage() {
         </Reveal>
       </section>
 
-      {/* Principios */}
-      <section className="mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10">
+      {/* Principios: composición fotográfica con el texto pintado en la
+          pared de la obra. El texto alternativo conserva el contenido
+          para lectores de pantalla y SEO. */}
+      <section
+        aria-label="Lo que nos define"
+        className="mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10"
+      >
         <Reveal>
-          <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-            Lo que nos define
-          </h2>
+          <Image
+            src="/images/lo-que-nos-define.webp"
+            alt={`Lo que nos define, pintado sobre la pared de una obra: ${principles
+              .map((p) => `${p.title}: ${p.text}`)
+              .join(" ")}`}
+            width={1376}
+            height={768}
+            className="w-full rounded-xl"
+            sizes="(min-width: 1320px) 1240px, 100vw"
+          />
         </Reveal>
-        <div className="mt-12 grid gap-x-16 gap-y-12 md:grid-cols-2">
-          {principles.map((p, i) => (
-            <Reveal key={p.title} delay={i * 60} className="border-t border-line pt-6">
-              <h3 className="font-display text-xl font-bold text-petrol-600">{p.title}</h3>
-              <p className="mt-3 max-w-lg leading-relaxed text-muted">{p.text}</p>
-            </Reveal>
-          ))}
-        </div>
       </section>
 
       {/* El trabajo en obra */}
