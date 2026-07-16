@@ -160,7 +160,7 @@ export default function ScrollConstructionHero() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={site.hero.poster}
-          alt="Vivienda terminada del conjunto Portal del Rosario"
+          alt="Terreno en preparación para la construcción de un conjunto residencial de GEMO"
           className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/30 to-transparent" />
