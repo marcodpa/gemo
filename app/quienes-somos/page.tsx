@@ -101,9 +101,10 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* Misión y visión */}
-      <section aria-label="Misión y visión" className="bg-ink-900 py-24 text-white md:py-32">
-        <div className="mx-auto grid max-w-[1320px] gap-14 px-5 md:grid-cols-2 md:gap-10 lg:px-10">
+      {/* Misión y visión: el texto vive en el cielo oscuro de la foto y la
+          entrada de Portal del Rosario queda anclada al fondo. */}
+      <section aria-label="Misión y visión" className="overflow-hidden bg-ink-900 pt-24 text-white md:pt-32">
+        <div className="relative z-10 mx-auto grid max-w-[1320px] gap-14 px-5 md:grid-cols-2 md:gap-10 lg:px-10">
           <Reveal>
             <h2 className="font-display text-2xl font-bold text-cyan-400">Misión</h2>
             <p className="mt-5 max-w-md font-display text-2xl leading-snug font-medium md:text-3xl">
@@ -119,6 +120,22 @@ export default function QuienesSomosPage() {
             </p>
           </Reveal>
         </div>
+
+        <Reveal className="relative mx-auto -mt-16 max-w-[1600px] md:-mt-40 lg:-mt-56">
+          <Image
+            src="/images/entrada-cielo-ink.webp"
+            alt="Entrada principal del conjunto residencial Portal del Rosario"
+            width={1376}
+            height={768}
+            className="w-full"
+            sizes="(min-width: 1600px) 1600px, 100vw"
+          />
+          {/* Fundido superior: la foto nace del azul del contenedor */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[26%] bg-gradient-to-b from-ink-900 via-ink-900/55 to-transparent"
+          />
+        </Reveal>
       </section>
 
       {/* Principios */}
