@@ -136,10 +136,7 @@ export default function QuienesSomosPage() {
       {/* Principios: composición fotográfica con el texto pintado en la
           pared de la obra. El texto alternativo conserva el contenido
           para lectores de pantalla y SEO. */}
-      <section
-        aria-label="Lo que nos define"
-        className="mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10"
-      >
+      <section aria-label="Lo que nos define" className="py-24 md:py-32">
         <Reveal>
           <Image
             src="/images/lo-que-nos-define.webp"
@@ -148,8 +145,8 @@ export default function QuienesSomosPage() {
               .join(" ")}`}
             width={1376}
             height={768}
-            className="w-full rounded-xl"
-            sizes="(min-width: 1320px) 1240px, 100vw"
+            className="w-full"
+            sizes="100vw"
           />
         </Reveal>
       </section>
