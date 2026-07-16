@@ -173,7 +173,7 @@ export default function QuienesSomosPage() {
                     <h3 className="font-display text-[1.45vw] font-bold text-petrol-700">
                       {p.title}
                     </h3>
-                    <p className="mt-[0.7vw] text-[1vw] leading-[1.5] text-ink-800/85">{p.text}</p>
+                    <p className="mt-[0.7vw] text-[1.25vw] leading-[1.5] text-ink-800/85">{p.text}</p>
                   </div>
                 ))}
               </div>
