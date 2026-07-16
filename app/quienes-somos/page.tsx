@@ -50,11 +50,6 @@ export default function QuienesSomosPage() {
             <h1 className="max-w-3xl font-display text-4xl leading-[1.08] font-extrabold tracking-tight text-white md:text-6xl">
               Más que viviendas, construimos patrimonio.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
-              Somos una empresa venezolana dedicada al desarrollo de proyectos inmobiliarios y de
-              infraestructura, con más de 20 años de trayectoria construyendo espacios que generan
-              bienestar, seguridad y valor para las familias.
-            </p>
           </Reveal>
         </div>
       </section>
@@ -78,7 +73,7 @@ export default function QuienesSomosPage() {
           <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/80 to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-[1320px] px-5 py-24 md:py-32 lg:px-10">
+        <div className="relative mx-auto max-w-[1320px] px-5 py-24 md:py-32 md:pr-[30vw] lg:px-10 lg:pr-80">
           <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
@@ -87,14 +82,14 @@ export default function QuienesSomosPage() {
             </Reveal>
             <Reveal delay={100} className="space-y-6 text-lg leading-relaxed text-body">
               <p>
+                Somos una empresa venezolana dedicada al desarrollo de proyectos inmobiliarios y de
+                infraestructura, con más de 20 años de trayectoria construyendo espacios que generan
+                bienestar, seguridad y valor para las familias.
+              </p>
+              <p>
                 Nos caracterizamos por trabajar con responsabilidad, transparencia y compromiso,
                 desarrollando proyectos pensados para responder a las necesidades reales de nuestros
                 clientes y contribuir al crecimiento de las comunidades donde estamos presentes.
-              </p>
-              <p>
-                Más que construir viviendas, construimos oportunidades para que cada familia pueda
-                acceder a un patrimonio propio con planes de pago accesibles, sin trámites bancarios
-                y con el respaldo de una empresa comprometida con cumplir lo que promete.
               </p>
             </Reveal>
           </div>
@@ -107,14 +102,14 @@ export default function QuienesSomosPage() {
         <div className="relative z-10 mx-auto grid max-w-[1320px] gap-14 px-5 md:grid-cols-2 md:gap-10 lg:px-10">
           <Reveal>
             <h2 className="font-display text-2xl font-bold text-cyan-400">Misión</h2>
-            <p className="mt-5 max-w-md font-display text-2xl leading-snug font-medium md:text-3xl">
+            <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90 md:text-xl">
               Desarrollar soluciones inmobiliarias y comerciales que impulsen el crecimiento de las
               comunidades y generen valor para nuestros clientes.
             </p>
           </Reveal>
           <Reveal delay={120} className="md:border-l md:border-white/15 md:pl-10">
             <h2 className="font-display text-2xl font-bold text-cyan-400">Visión</h2>
-            <p className="mt-5 max-w-md font-display text-2xl leading-snug font-medium md:text-3xl">
+            <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90 md:text-xl">
               Ser líderes en el desarrollo de proyectos inmobiliarios y comerciales que transformen
               comunidades.
             </p>
