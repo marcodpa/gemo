@@ -31,7 +31,6 @@ export default function ServiciosPage() {
           {/* Degradados amplios para fundir la foto con el fondo sin corte visible */}
           <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-paper via-paper/55 to-transparent" />
           <div className="absolute inset-x-0 top-0 h-2/5 bg-gradient-to-b from-paper via-paper/55 to-transparent" />
-          <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-paper/70 to-transparent" />
         </div>
 
         <div className="relative mx-auto max-w-[1320px] px-5 pt-36 pb-16 md:pt-44 md:pb-24 md:pr-[32vw] lg:px-10">
