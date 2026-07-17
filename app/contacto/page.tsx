@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+import ObraParallax from "@/components/ObraParallax";
 import { site } from "@/data/site";
 import {
   Phone,
@@ -99,6 +100,11 @@ export default function ContactoPage() {
         <Reveal delay={80} className="order-1 lg:order-2">
           <ContactForm />
         </Reveal>
+      </section>
+
+      {/* Cierre fotográfico con parallax */}
+      <section aria-label="Nuestro equipo en obra">
+        <ObraParallax />
       </section>
     </main>
   );
