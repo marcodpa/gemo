@@ -125,28 +125,6 @@ export default async function ProyectoPage({ params }: Props) {
         </Reveal>
       </section>
 
-      {/* Galería */}
-      {project.gallery.length > 1 && (
-        <section aria-label={`Galería de ${project.name}`} className="mx-auto max-w-[1320px] px-5 pb-20 md:pb-28 lg:px-10">
-          <div className="grid gap-5 md:grid-cols-2">
-            {project.gallery.map((src, i) => (
-              <Reveal key={src} delay={(i % 2) * 80} className={i === 0 ? "md:col-span-2" : ""}>
-                <Image
-                  src={src}
-                  alt={`${project.name}, imagen ${i + 1} de ${project.gallery.length}`}
-                  width={1400}
-                  height={933}
-                  className={`w-full rounded-xl object-cover ${
-                    i === 0 ? "aspect-[21/9]" : "aspect-[4/3]"
-                  }`}
-                  sizes={i === 0 ? "(min-width: 1320px) 1240px, 100vw" : "(min-width: 768px) 48vw, 100vw"}
-                />
-              </Reveal>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* Plan de pago y contacto */}
       <section className="bg-ink-900 py-20 text-white md:py-28">
         <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-5 md:grid-cols-[1.4fr_1fr] lg:px-10">
