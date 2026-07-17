@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ServicesMosaic from "@/components/ServicesMosaic";
-import { processSteps } from "@/data/site";
+import ProcessTimeline from "@/components/ProcessTimeline";
 
 export const metadata: Metadata = {
   title: "Servicios",
@@ -46,22 +46,7 @@ export default function ServiciosPage() {
               Un camino claro, sin sorpresas, desde la primera conversación hasta la entrega.
             </p>
           </Reveal>
-          <ol className="mt-16 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-            {processSteps.map((step, i) => (
-              <Reveal
-                key={step.title}
-                delay={(i % 3) * 70}
-                as="li"
-                className="border-t border-white/15 pt-6"
-              >
-                <span className="font-display text-sm font-semibold text-cyan-400">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 font-display text-xl font-bold">{step.title}</h3>
-                <p className="mt-3 leading-relaxed text-white/70">{step.text}</p>
-              </Reveal>
-            ))}
-          </ol>
+          <ProcessTimeline />
         </div>
       </section>
 
