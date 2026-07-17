@@ -34,8 +34,8 @@ export default function ObraParallax() {
         start: "top bottom",
         end: "bottom top",
         onUpdate: (self) => {
-          // La imagen recorre un 18% de su alto extra, más lento que el scroll.
-          inner.style.transform = `translateY(${(0.5 - self.progress) * 18}%)`;
+          // Desplazamiento muy sutil, más lento que el scroll.
+          inner.style.transform = `translateY(${(0.5 - self.progress) * 6}%)`;
         },
       });
     };
@@ -48,25 +48,20 @@ export default function ObraParallax() {
   }, [reducedMotion]);
 
   return (
-    <div ref={wrapRef} className="relative h-[58svh] min-h-[400px] overflow-hidden">
-      <div
-        ref={innerRef}
-        className="absolute inset-x-0 -top-[15%] h-[130%]"
-        style={{ willChange: "transform" }}
-      >
+    <div ref={wrapRef} className="overflow-hidden">
+      {/* La foto completa, sin recortes: el cielo ya es del color del
+          fondo, así que la escena emerge de la página. El parallax es
+          muy sutil para dar profundidad sin deformar. */}
+      <div ref={innerRef} className="mx-auto max-w-[820px] px-5" style={{ willChange: "transform" }}>
         <Image
           src="/images/obra-cuadrilla.webp"
           alt="Cuadrilla de GEMO subiendo formaletas al techo de una vivienda en obra"
-          fill
-          className="object-cover object-[center_62%]"
-          sizes="100vw"
+          width={1023}
+          height={1537}
+          className="h-auto w-full"
+          sizes="(min-width: 820px) 780px, 100vw"
         />
       </div>
-      {/* Fundido superior: la foto nace del fondo de la página */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-2/5 bg-gradient-to-b from-paper via-paper/60 to-transparent"
-      />
     </div>
   );
 }
