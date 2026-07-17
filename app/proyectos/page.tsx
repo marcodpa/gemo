@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ProjectsGallery from "@/components/ProjectsGallery";
 
@@ -26,6 +28,34 @@ export default function ProyectosPage() {
 
       <section aria-label="Galería de proyectos" className="mx-auto max-w-[1320px] px-5 pb-28 lg:px-10">
         <ProjectsGallery />
+      </section>
+
+      {/* Cierre */}
+      <section className="relative overflow-hidden">
+        <Image
+          src="/images/calle-atardecer.webp"
+          alt=""
+          aria-hidden="true"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-ink-950/65" />
+        <div className="relative mx-auto flex max-w-[1320px] flex-col items-start gap-7 px-5 py-24 md:flex-row md:items-center md:justify-between md:py-28 lg:px-10">
+          <Reveal>
+            <h2 className="max-w-xl font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
+              ¿Te interesa alguno de nuestros proyectos?
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <Link
+              href="/contacto"
+              className="inline-block rounded-full bg-white px-7 py-3.5 font-semibold text-ink-900 transition hover:bg-white/90 active:scale-[0.98]"
+            >
+              Contáctanos
+            </Link>
+          </Reveal>
+        </div>
       </section>
     </main>
   );
