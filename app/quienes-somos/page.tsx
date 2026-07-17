@@ -54,51 +54,34 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* Historia: detalle de obra de fondo, arriba a la izquierda */}
+      {/* Historia: la foto del vaciado cubre todo el lado izquierdo y el
+          título va sobre los párrafos en la columna derecha. */}
       <section className="relative overflow-hidden bg-white">
-        {/* Vaciado de losa: esquina inferior izquierda */}
+        {/* Vaciado de losa: cubre todo el alto del lado izquierdo */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 left-0 hidden w-[19rem] max-w-[30vw] md:block"
+          className="pointer-events-none absolute inset-y-0 left-0 hidden w-[42%] md:block"
         >
           <Image
             src="/images/vaciado-losa.webp"
             alt=""
-            width={900}
-            height={1488}
-            className="h-auto w-full"
-            sizes="208px"
+            fill
+            className="object-cover"
+            sizes="42vw"
           />
-          {/* Degradados muy ligeros para disimular el corte de la foto */}
+          {/* Degradados ligeros para fundir la foto con el contenedor */}
           <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white/90 to-transparent" />
           <div className="absolute inset-x-0 top-0 h-1/5 bg-gradient-to-b from-white to-transparent" />
         </div>
 
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 bottom-0 hidden w-[17rem] max-w-[28vw] md:block"
-        >
-          <Image
-            src="/images/mano-mezcla-blanco.webp"
-            alt=""
-            width={843}
-            height={1264}
-            className="h-auto w-full"
-            sizes="272px"
-          />
-          {/* Degradados muy ligeros para disimular el corte de la foto */}
-          <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white/90 to-transparent" />
-          <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/80 to-transparent" />
-        </div>
-
-        <div className="relative mx-auto max-w-[1320px] px-5 pt-16 pb-24 md:min-h-[40rem] md:pt-20 md:pb-28 lg:min-h-[48rem] lg:px-10">
-          <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
+        <div className="relative mx-auto max-w-[1320px] px-5 py-20 md:py-28 lg:px-10">
+          <div className="md:ml-[46%]">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
                 Dos décadas cumpliendo lo que prometemos
               </h2>
             </Reveal>
-            <Reveal delay={100} className="space-y-6 text-lg leading-relaxed text-body">
+            <Reveal delay={100} className="mt-8 space-y-6 text-lg leading-relaxed text-body">
               <p>
                 Somos una empresa venezolana dedicada al desarrollo de proyectos inmobiliarios y de
                 infraestructura, con más de 20 años de trayectoria construyendo espacios que generan
@@ -111,6 +94,18 @@ export default function QuienesSomosPage() {
               </p>
             </Reveal>
           </div>
+
+          {/* Versión móvil de la foto */}
+          <Reveal className="mt-10 md:hidden">
+            <Image
+              src="/images/vaciado-losa.webp"
+              alt="Equipo de GEMO vaciando la losa de una vivienda"
+              width={900}
+              height={1488}
+              className="aspect-[4/3] w-full rounded-xl object-cover"
+              sizes="100vw"
+            />
+          </Reveal>
         </div>
       </section>
 
