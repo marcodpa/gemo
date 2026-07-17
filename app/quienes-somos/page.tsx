@@ -91,7 +91,7 @@ export default function QuienesSomosPage() {
           <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/80 to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-[1320px] px-5 pt-16 pb-24 md:min-h-[40rem] md:pt-20 md:pr-[18vw] md:pb-28 lg:min-h-[48rem] lg:px-10 lg:pr-44">
+        <div className="relative mx-auto max-w-[1320px] px-5 pt-16 pb-24 md:min-h-[40rem] md:pt-20 md:pb-28 lg:min-h-[48rem] lg:px-10">
           <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
@@ -183,12 +183,16 @@ export default function QuienesSomosPage() {
         {/* Versión móvil: texto en flujo normal */}
         <div className="mx-auto max-w-[1320px] px-5 md:hidden">
           <h2 className="font-display text-3xl font-bold tracking-tight">Lo que nos define</h2>
+          <span aria-hidden="true" className="mt-3 block h-1.5 w-14 rounded-full bg-sun-300" />
           <div className="mt-8 grid gap-8">
-            {principles.map((p) => (
-              <div key={p.title} className="border-t border-line pt-5">
-                <h3 className="font-display text-xl font-bold text-petrol-600">{p.title}</h3>
+            {principles.map((p, i) => (
+              <Reveal key={p.title} delay={i * 80} className="border-t border-line pt-5">
+                <h3 className="flex items-center gap-2.5 font-display text-xl font-bold text-petrol-600">
+                  <span aria-hidden="true" className="h-2 w-2 shrink-0 rotate-45 bg-sun-300" />
+                  {p.title}
+                </h3>
                 <p className="mt-2 leading-relaxed text-muted">{p.text}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -208,14 +212,26 @@ export default function QuienesSomosPage() {
               <h2 className="font-display text-[2.6vw] font-bold tracking-tight text-ink-800">
                 Lo que nos define
               </h2>
-              <div className="mt-[2.2vw] grid grid-cols-2 gap-x-[3vw] gap-y-[2.4vw]">
+              <span
+                aria-hidden="true"
+                className="mt-[0.8vw] block h-[0.45vw] w-[4.5vw] rounded-full bg-sun-300"
+              />
+              <div className="mt-[2vw] grid grid-cols-2 gap-x-[3vw] gap-y-[2.4vw]">
                 {principles.map((p, i) => (
-                  <div key={p.title} className={i < 2 ? "border-b border-ink-800/25 pb-[2vw]" : ""}>
-                    <h3 className="font-display text-[1.45vw] font-bold text-petrol-700">
+                  <Reveal
+                    key={p.title}
+                    delay={150 + i * 130}
+                    className={i < 2 ? "border-b border-ink-800/25 pb-[2vw]" : ""}
+                  >
+                    <h3 className="flex items-center gap-[0.7vw] font-display text-[1.45vw] font-bold text-petrol-700">
+                      <span
+                        aria-hidden="true"
+                        className="h-[0.55vw] w-[0.55vw] shrink-0 rotate-45 bg-sun-300"
+                      />
                       {p.title}
                     </h3>
                     <p className="mt-[0.7vw] text-[1.25vw] leading-[1.5] text-ink-800/85">{p.text}</p>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
