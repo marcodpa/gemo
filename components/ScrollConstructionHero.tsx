@@ -25,6 +25,7 @@ export default function ScrollConstructionHero() {
   const stageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const finalRef = useRef<HTMLDivElement>(null);
   const scrimRef = useRef<HTMLDivElement>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
 
   const [videoReady, setVideoReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
@@ -86,6 +87,10 @@ export default function ScrollConstructionHero() {
 
       const scrim = scrimRef.current;
       if (scrim) scrim.style.opacity = String(t * 0.55);
+
+      // Indicador de scroll: visible al inicio, se desvanece al deslizar.
+      const hint = hintRef.current;
+      if (hint) hint.style.opacity = String(Math.max(1 - p / 0.04, 0));
 
       video.style.transform = `scale(${1 + t * 0.05})`;
     };
@@ -239,6 +244,20 @@ export default function ScrollConstructionHero() {
           style={{ willChange: "opacity, transform" }}
         >
           <HeroFinalContent />
+        </div>
+
+        {/* Indicador de scroll: invita a deslizar para iniciar la animación */}
+        <div
+          ref={hintRef}
+          className="pointer-events-none absolute inset-x-0 bottom-7 z-10 flex flex-col items-center gap-2.5"
+          style={{ willChange: "opacity" }}
+        >
+          <span className="text-xs font-semibold tracking-[0.25em] text-white/80 uppercase">
+            Desliza para construir
+          </span>
+          <span className="flex h-9 w-6 items-start justify-center rounded-full border-2 border-white/50 p-1.5">
+            <span className="h-1.5 w-1 animate-scroll-hint rounded-full bg-white/90" />
+          </span>
         </div>
       </div>
     </section>
