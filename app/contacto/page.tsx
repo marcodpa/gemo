@@ -102,9 +102,38 @@ export default function ContactoPage() {
         </Reveal>
       </section>
 
-      {/* Cierre fotográfico con parallax */}
-      <section aria-label="Nuestro equipo en obra">
-        <ObraParallax />
+      {/* Cierre editorial: el equipo en obra da contexto al mensaje final */}
+      <section
+        aria-label="Nuestro equipo en obra"
+        className="border-t border-line"
+      >
+        <div className="mx-auto grid max-w-[1320px] items-center gap-10 px-5 py-16 md:grid-cols-2 md:gap-16 md:py-0 lg:px-10">
+          <Reveal className="order-2 md:order-1 md:py-24">
+            <p className="text-sm font-semibold tracking-wide text-petrol-600 uppercase">
+              Detrás de cada proyecto
+            </p>
+            <h2 className="mt-4 max-w-md font-display text-3xl leading-[1.15] font-bold tracking-tight md:text-4xl">
+              Un equipo que construye con las manos lo que promete con la palabra.
+            </h2>
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+              Cuando nos escribes, del otro lado hay gente real trabajando cada día para que tu
+              familia tenga un espacio propio. Cuéntanos qué necesitas y demos el primer paso juntos.
+            </p>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center gap-2.5 rounded-full bg-petrol-600 px-7 py-3.5 font-semibold text-white transition hover:bg-petrol-700 active:scale-[0.98]"
+            >
+              <WhatsappLogo size={20} weight="fill" />
+              Hablar con un asesor
+            </a>
+          </Reveal>
+
+          <div className="order-1 self-end md:order-2">
+            <ObraParallax />
+          </div>
+        </div>
       </section>
     </main>
   );

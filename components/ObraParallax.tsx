@@ -52,14 +52,14 @@ export default function ObraParallax() {
       {/* La foto completa, sin recortes: el cielo ya es del color del
           fondo, así que la escena emerge de la página. El parallax es
           muy sutil para dar profundidad sin deformar. */}
-      <div ref={innerRef} className="mx-auto max-w-[820px] px-5" style={{ willChange: "transform" }}>
+      <div ref={innerRef} className="mx-auto max-w-[460px] md:mx-0" style={{ willChange: "transform" }}>
         <Image
           src="/images/obra-cuadrilla.webp"
           alt="Cuadrilla de GEMO subiendo formaletas al techo de una vivienda en obra"
           width={1023}
           height={1537}
           className="h-auto w-full"
-          sizes="(min-width: 820px) 780px, 100vw"
+          sizes="(min-width: 768px) 46vw, 100vw"
         />
       </div>
     </div>
