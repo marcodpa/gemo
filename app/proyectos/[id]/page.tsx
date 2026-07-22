@@ -104,8 +104,12 @@ export default async function ProyectoPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Descripción y características */}
-      <section className="mx-auto grid max-w-[1320px] gap-14 px-5 py-20 md:grid-cols-[1.5fr_1fr] md:gap-20 md:py-28 lg:px-10">
+      {/* Recorrido editorial: el texto del proyecto entretejido con sus
+          fotos (descripción junto a foto, banda panorámica, características
+          junto a foto y un dúo de cierre). */}
+
+      {/* 1. Sobre el proyecto + foto */}
+      <section className="mx-auto grid max-w-[1320px] items-center gap-10 px-5 py-20 md:grid-cols-2 md:gap-16 md:py-28 lg:px-10">
         <Reveal>
           <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
             Sobre el proyecto
@@ -113,12 +117,56 @@ export default async function ProyectoPage({ params }: Props) {
           <span aria-hidden="true" className="mt-5 block h-1.5 w-14 rounded-full bg-sun-300" />
           <p className="mt-6 text-lg leading-relaxed text-body">{project.description}</p>
         </Reveal>
-        <Reveal delay={100} className="md:pt-2">
-          <h3 className="font-display text-xl font-bold">Características</h3>
-          <ul className="mt-5 space-y-4">
+        {project.gallery[1] && (
+          <Reveal delay={100} className="group overflow-hidden rounded-xl">
+            <Image
+              src={project.gallery[1]}
+              alt={`Vista del proyecto ${project.name}`}
+              width={1600}
+              height={1200}
+              className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              sizes="(min-width: 768px) 46vw, 100vw"
+            />
+          </Reveal>
+        )}
+      </section>
+
+      {/* 2. Banda panorámica a todo el ancho */}
+      {project.gallery[2] && (
+        <Reveal className="group relative h-[52svh] min-h-[340px] w-full overflow-hidden">
+          <Image
+            src={project.gallery[2]}
+            alt={`${project.name}, panorámica del desarrollo`}
+            fill
+            className="object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+            sizes="100vw"
+          />
+        </Reveal>
+      )}
+
+      {/* 3. Foto + características */}
+      <section className="mx-auto grid max-w-[1320px] items-center gap-10 px-5 py-20 md:grid-cols-2 md:gap-16 md:py-28 lg:px-10">
+        {project.gallery[3] && (
+          <Reveal className="group order-2 overflow-hidden rounded-xl md:order-1">
+            <Image
+              src={project.gallery[3]}
+              alt={`Detalle del proyecto ${project.name}`}
+              width={1600}
+              height={1200}
+              className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              sizes="(min-width: 768px) 46vw, 100vw"
+            />
+          </Reveal>
+        )}
+        <Reveal delay={100} className="order-1 md:order-2">
+          <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
+            Lo que incluye
+          </h2>
+          <span aria-hidden="true" className="mt-5 block h-1.5 w-14 rounded-full bg-sun-300" />
+          <ul className="mt-7 space-y-4">
             {project.features.map((f) => (
-              <li key={f} className="flex gap-3 border-t border-line pt-4 leading-relaxed text-body">
-                <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rotate-45 bg-cyan-400" />
+              <li key={f} className="flex gap-3.5 border-t border-line pt-4 text-lg leading-relaxed text-body">
+                <span aria-hidden="true" className="mt-2.5 h-2 w-2 shrink-0 rotate-45 bg-cyan-400" />
                 {f}
               </li>
             ))}
@@ -126,44 +174,24 @@ export default async function ProyectoPage({ params }: Props) {
         </Reveal>
       </section>
 
-      {/* Galería editorial del proyecto */}
-      {project.gallery.length > 1 && (
+      {/* 4. Dúo de cierre */}
+      {(project.gallery[4] || project.gallery[5]) && (
         <section
-          aria-label={`El proyecto ${project.name} en imágenes`}
-          className="mx-auto max-w-[1320px] px-5 pb-20 md:pb-28 lg:px-10"
+          aria-label={`Más imágenes de ${project.name}`}
+          className="mx-auto grid max-w-[1320px] gap-4 px-5 pb-20 md:grid-cols-2 md:gap-5 md:pb-28 lg:px-10"
         >
-          <Reveal>
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-              El proyecto en imágenes
-            </h2>
-            <span aria-hidden="true" className="mt-5 block h-1.5 w-14 rounded-full bg-sun-300" />
-          </Reveal>
-
-          <div className="mt-12 grid gap-4 md:gap-5 lg:grid-cols-12">
-            {project.gallery.slice(1).map((src, i) => {
-              // Composición asimétrica: 7/5, 5/7 y una panorámica final.
-              const spans = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"];
-              const isLast = i === project.gallery.slice(1).length - 1;
-              const span = isLast ? "lg:col-span-12" : (spans[i % spans.length] ?? "lg:col-span-6");
-              const ratio = isLast ? "aspect-[16/9] md:aspect-[21/8]" : "aspect-[16/10]";
-              return (
-                <Reveal
-                  key={src}
-                  delay={(i % 2) * 90}
-                  className={`group overflow-hidden rounded-xl ${span}`}
-                >
-                  <Image
-                    src={src}
-                    alt={`${project.name}, imagen ${i + 2} de ${project.gallery.length}`}
-                    width={1600}
-                    height={isLast ? 686 : 1000}
-                    className={`${ratio} w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]`}
-                    sizes={isLast ? "(min-width: 1320px) 1240px, 100vw" : "(min-width: 1024px) 620px, 100vw"}
-                  />
-                </Reveal>
-              );
-            })}
-          </div>
+          {[project.gallery[4], project.gallery[5]].filter(Boolean).map((src, i) => (
+            <Reveal key={src} delay={i * 100} className="group overflow-hidden rounded-xl">
+              <Image
+                src={src as string}
+                alt={`Imagen del proyecto ${project.name}`}
+                width={1600}
+                height={1200}
+                className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                sizes="(min-width: 768px) 46vw, 100vw"
+              />
+            </Reveal>
+          ))}
         </section>
       )}
 
