@@ -104,8 +104,8 @@ export default function HomePage() {
 
         {/* Foto completa (sin recorte), anclada abajo a la derecha.
             En móvil queda de fondo del contenedor, detrás del texto. */}
-        <Reveal className="pointer-events-none absolute right-0 bottom-0 flex w-[78%] justify-end sm:w-[55%] lg:w-[40%]">
-          <div className="relative w-full opacity-85 lg:max-w-[500px] lg:opacity-100">
+        <Reveal className="pointer-events-none absolute right-0 bottom-0 flex w-[82%] justify-end sm:w-[55%] lg:w-[40%]">
+          <div className="relative w-full opacity-70 lg:max-w-[500px] lg:opacity-100">
             <Image
               src="/images/obrero-vaciado.webp"
               alt="Trabajador de GEMO vaciando concreto en el encofrado de una vivienda"
@@ -114,16 +114,17 @@ export default function HomePage() {
               className="h-auto w-full"
               sizes="(min-width: 1024px) 500px, 60vw"
             />
-            {/* Fundido superior: la foto nace del blanco del contenedor */}
+            {/* Fundido superior: la foto nace del blanco del contenedor.
+                Más amplio en móvil para eliminar el corte duro. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 top-0 h-[24%] bg-gradient-to-b from-white via-white/55 to-transparent"
+              className="pointer-events-none absolute inset-x-0 top-0 h-[55%] bg-gradient-to-b from-white via-white/70 to-transparent lg:h-[24%] lg:via-white/55"
             />
-            {/* En móvil, velo suave solo en el borde izquierdo para que el
-                texto que se superpone siga siendo legible */}
+            {/* En móvil, velo lateral izquierdo amplio para que el texto
+                superpuesto siga siendo legible y la foto se funda con el fondo */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/75 via-white/15 to-transparent lg:hidden"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/45 to-transparent lg:hidden"
             />
             {/* En escritorio, degradado lateral que disimula la transición
                 entre el fondo blanco y la foto */}
