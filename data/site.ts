@@ -18,13 +18,17 @@ export const site = {
   locale: "es_VE",
 
   contact: {
-    phone: "+58 412-000-0000", // [PROVISIONAL]
-    phoneHref: "+584120000000", // [PROVISIONAL]
-    whatsapp: "584120000000", // [PROVISIONAL] solo dígitos, con código de país
+    // [CONFIRMAR] El número que indicaste tiene 8 dígitos tras el 412
+    // (+58 412 70025624); los móviles venezolanos llevan 7. Verificar
+    // cuál es el correcto para que los enlaces de llamada y WhatsApp funcionen.
+    phone: "+58 412 70025624",
+    phoneHref: "+5841270025624",
+    whatsapp: "5841270025624", // solo dígitos, con código de país
     whatsappMessage:
       "Hola, me gustaría recibir información sobre los proyectos de GEMO Construcciones.",
-    email: "contacto@gemoconstrucciones.com", // [PROVISIONAL]
-    address: "Av. Principal, Torre Empresarial, Caracas, Venezuela", // [PROVISIONAL]
+    email: "contacto@gemoconstrucciones.com", // [PROVISIONAL — correo por confirmar]
+    address:
+      "Entrada del Parque Recreacional Ramón Valbuena, La Villa del Rosario, Edo. Zulia, Venezuela",
     schedule: "Lunes a viernes, 8:00 a. m. a 5:00 p. m.", // [PROVISIONAL]
   },
 

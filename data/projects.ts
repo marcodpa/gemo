@@ -2,13 +2,13 @@
  * ============================================================
  * PROYECTOS - GEMO Construcciones
  * ============================================================
- * CONTENIDO PROVISIONAL DE EJEMPLO.
- * Los nombres, ubicaciones, características, avances y planes de
- * pago que aparecen aquí son ficticios y sirven únicamente para
- * mostrar el diseño. Sustituir por la información real de cada
- * proyecto antes de publicar el sitio.
+ * Portal del Rosario y Villa Esperanza son proyectos reales de la
+ * empresa (fotos propias). Los datos comerciales marcados con
+ * [CONFIRMAR] deben ser validados por GEMO antes de publicar
+ * (estado real, porcentaje de avance, tipologías y planes de pago).
  *
- * Las imágenes provienen del archivo fotográfico de la empresa.
+ * Los dos primeros proyectos del arreglo se muestran como
+ * "Proyectos destacados" en la página de inicio.
  */
 
 export type ProjectStatus = "disponible" | "construccion" | "finalizado" | "proximo";
@@ -38,106 +38,60 @@ export const statusLabels: Record<ProjectStatus, string> = {
 
 export const projects: Project[] = [
   {
-    // Proyecto real de GEMO Construcciones (fotos propias).
-    // Completar ubicación exacta, características y plan de pago oficiales.
     id: "portal-del-rosario",
     name: "Portal del Rosario",
-    location: "Rosario de Perijá, Zulia", // [CONFIRMAR dirección exacta]
+    location: "La Villa del Rosario, Zulia",
     type: "Residencial",
-    status: "construccion",
+    status: "disponible",
     summary:
-      "Conjunto residencial en desarrollo: viviendas unifamiliares con urbanismo propio, pensadas para que más familias accedan a su patrimonio.",
+      "Nuestro conjunto residencial insignia: viviendas unifamiliares con urbanismo propio, acceso controlado y una entrada distintiva, pensadas para que más familias accedan a su patrimonio.",
     description:
-      "Portal del Rosario es un conjunto residencial desarrollado por GEMO Construcciones. El proyecto avanza por etapas e incluye viviendas unifamiliares dentro de un urbanismo con acceso controlado. Los detalles oficiales (ubicación exacta, tipologías, avance y condiciones) serán completados por la empresa.",
+      "Portal del Rosario es el desarrollo residencial insignia de GEMO Construcciones en La Villa del Rosario. Un urbanismo cerrado de viviendas unifamiliares con su entrada característica, calles internas y áreas comunes, concebido para familias que buscan un espacio propio, seguro y con proyección de futuro. Cada vivienda se entrega con acabados listos para habitar y con el respaldo de una empresa comprometida con cumplir lo que promete.",
     features: [
       "Viviendas unifamiliares en urbanismo cerrado",
-      "Acceso principal con entrada distintiva",
-      "Desarrollo por etapas",
-      "Entorno natural y áreas abiertas",
+      "Entrada principal con acceso controlado",
+      "Calles internas y áreas comunes",
+      "Entorno tranquilo, ideal para familias",
     ],
-    progress: 50, // [PROVISIONAL, actualizar con el avance real]
     paymentPlan:
-      "Planes de pago directos con la empresa, sin trámites bancarios tradicionales. Condiciones oficiales por confirmar. [PROVISIONAL]",
+      "Planes de pago directos con la empresa, con inicial fraccionada y cuotas, sin trámites bancarios tradicionales. Condiciones según disponibilidad. [CONFIRMAR]",
     image: "/images/proyectos/portal-del-rosario-1.webp",
     gallery: [
       "/images/proyectos/portal-del-rosario-1.webp",
       "/images/proyectos/portal-del-rosario-2.webp",
       "/images/proyectos/portal-del-rosario-3.webp",
       "/images/proyectos/portal-del-rosario-4.webp",
+      "/images/proyectos/portal-del-rosario-5.webp",
+      "/images/proyectos/portal-del-rosario-6.webp",
     ],
   },
   {
-    id: "residencias-monte-verde",
-    name: "Residencias Monte Verde",
-    location: "Venezuela · Ubicación por confirmar", // [PROVISIONAL]
+    id: "villa-esperanza",
+    name: "Villa Esperanza",
+    location: "La Villa del Rosario, Zulia",
     type: "Residencial",
-    status: "disponible",
+    status: "construccion",
     summary:
-      "Conjunto residencial pensado para familias que buscan su primera vivienda, con áreas verdes y planes de pago accesibles.",
+      "Desarrollo residencial en plena construcción: nuevas viviendas levantándose etapa por etapa, con la misma calidad constructiva y planes de pago pensados para las familias.",
     description:
-      "Residencias Monte Verde es un desarrollo residencial de ejemplo que muestra cómo se presentará cada proyecto: viviendas funcionales, espacios comunes seguros y un entorno diseñado para el crecimiento de las familias. Toda la información de esta ficha es provisional y será sustituida por los datos reales del proyecto.",
+      "Villa Esperanza es el nuevo desarrollo residencial de GEMO Construcciones, hoy en plena etapa de obra. Fundaciones, estructura, techos y acabados avanzan con supervisión técnica permanente para entregar viviendas sólidas y funcionales. Es la oportunidad de sumarse desde temprano a un proyecto que crece, con las mejores condiciones de reserva y un plan de pago acompañado en cada etapa de la construcción.",
     features: [
-      "Viviendas unifamiliares [PROVISIONAL]",
-      "Áreas verdes y recreativas",
-      "Vigilancia y acceso controlado",
-      "Estacionamiento por vivienda",
+      "Viviendas en construcción por etapas",
+      "Supervisión técnica permanente en obra",
+      "Materiales y acabados de calidad",
+      "Reserva anticipada con mejores condiciones",
     ],
+    progress: 45, // [CONFIRMAR — avance real de obra]
     paymentPlan:
-      "Planes de pago directos con inicial fraccionada y cuotas mensuales, sin trámites bancarios. Condiciones según disponibilidad. [PROVISIONAL]",
-    image: "/images/proyectos/monte-verde-1.webp",
+      "Reserva con inicial accesible y cuotas durante la construcción, directo con la empresa y sin trámites bancarios. Condiciones según disponibilidad. [CONFIRMAR]",
+    image: "/images/proyectos/villa-esperanza-1.webp",
     gallery: [
-      "/images/proyectos/monte-verde-1.webp",
-      "/images/proyectos/monte-verde-2.webp",
-      "/images/proyectos/monte-verde-3.webp",
-    ],
-  },
-  {
-    id: "centro-comercial-el-roble",
-    name: "Centro Comercial El Roble",
-    location: "Venezuela · Ubicación por confirmar", // [PROVISIONAL]
-    type: "Comercial",
-    status: "finalizado",
-    summary:
-      "Espacio comercial moderno y funcional, diseñado para impulsar el crecimiento económico de la zona.",
-    description:
-      "Centro Comercial El Roble es un ejemplo de proyecto comercial entregado: locales funcionales, áreas comunes bien resueltas y una construcción orientada a durar. Ficha provisional para mostrar el diseño.",
-    features: [
-      "Locales comerciales de distintas dimensiones [PROVISIONAL]",
-      "Estacionamiento para visitantes",
-      "Áreas comunes climatizadas",
-      "Accesos peatonales y vehiculares",
-    ],
-    paymentPlan:
-      "Modalidades de compra y arrendamiento de locales según disponibilidad. [PROVISIONAL]",
-    image: "/images/proyectos/el-roble-1.webp",
-    gallery: [
-      "/images/proyectos/el-roble-1.webp",
-      "/images/proyectos/el-roble-2.webp",
-      "/images/proyectos/el-roble-3.webp",
-    ],
-  },
-  {
-    id: "urbanizacion-valle-alto",
-    name: "Urbanización Valle Alto",
-    location: "Venezuela · Ubicación por confirmar", // [PROVISIONAL]
-    type: "Residencial",
-    status: "proximo",
-    summary:
-      "Próximo desarrollo residencial que ampliará las oportunidades de vivienda con el respaldo de GEMO Construcciones.",
-    description:
-      "Urbanización Valle Alto es el ejemplo de un proyecto en fase de planificación: pronto se publicará su información oficial, renders y planes de pago. Ficha provisional.",
-    features: [
-      "Preventa próximamente [PROVISIONAL]",
-      "Urbanismo planificado",
-      "Opciones de financiamiento directo",
-      "Registro de interesados abierto",
-    ],
-    paymentPlan:
-      "Los planes de pago se anunciarán junto con el lanzamiento oficial del proyecto. [PROVISIONAL]",
-    image: "/images/proyectos/valle-alto-1.webp",
-    gallery: [
-      "/images/proyectos/valle-alto-1.webp",
-      "/images/proyectos/valle-alto-2.webp",
+      "/images/proyectos/villa-esperanza-1.webp",
+      "/images/proyectos/villa-esperanza-2.webp",
+      "/images/proyectos/villa-esperanza-3.webp",
+      "/images/proyectos/villa-esperanza-4.webp",
+      "/images/proyectos/villa-esperanza-5.webp",
+      "/images/proyectos/villa-esperanza-6.webp",
     ],
   },
 ];

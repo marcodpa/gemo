@@ -110,20 +110,62 @@ export default async function ProyectoPage({ params }: Props) {
           <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
             Sobre el proyecto
           </h2>
+          <span aria-hidden="true" className="mt-5 block h-1.5 w-14 rounded-full bg-sun-300" />
           <p className="mt-6 text-lg leading-relaxed text-body">{project.description}</p>
         </Reveal>
-        <Reveal delay={100}>
+        <Reveal delay={100} className="md:pt-2">
           <h3 className="font-display text-xl font-bold">Características</h3>
-          <ul className="mt-5 space-y-3.5">
+          <ul className="mt-5 space-y-4">
             {project.features.map((f) => (
-              <li key={f} className="flex gap-3 leading-relaxed text-body">
-                <span aria-hidden="true" className="mt-[11px] h-[3px] w-4 shrink-0 rounded-full bg-cyan-400" />
+              <li key={f} className="flex gap-3 border-t border-line pt-4 leading-relaxed text-body">
+                <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rotate-45 bg-cyan-400" />
                 {f}
               </li>
             ))}
           </ul>
         </Reveal>
       </section>
+
+      {/* Galería editorial del proyecto */}
+      {project.gallery.length > 1 && (
+        <section
+          aria-label={`El proyecto ${project.name} en imágenes`}
+          className="mx-auto max-w-[1320px] px-5 pb-20 md:pb-28 lg:px-10"
+        >
+          <Reveal>
+            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
+              El proyecto en imágenes
+            </h2>
+            <span aria-hidden="true" className="mt-5 block h-1.5 w-14 rounded-full bg-sun-300" />
+          </Reveal>
+
+          <div className="mt-12 grid gap-4 md:gap-5 lg:grid-cols-12">
+            {project.gallery.slice(1).map((src, i) => {
+              // Composición asimétrica: 7/5, 5/7 y una panorámica final.
+              const spans = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"];
+              const isLast = i === project.gallery.slice(1).length - 1;
+              const span = isLast ? "lg:col-span-12" : (spans[i % spans.length] ?? "lg:col-span-6");
+              const ratio = isLast ? "aspect-[16/9] md:aspect-[21/8]" : "aspect-[16/10]";
+              return (
+                <Reveal
+                  key={src}
+                  delay={(i % 2) * 90}
+                  className={`group overflow-hidden rounded-xl ${span}`}
+                >
+                  <Image
+                    src={src}
+                    alt={`${project.name}, imagen ${i + 2} de ${project.gallery.length}`}
+                    width={1600}
+                    height={isLast ? 686 : 1000}
+                    className={`${ratio} w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]`}
+                    sizes={isLast ? "(min-width: 1320px) 1240px, 100vw" : "(min-width: 1024px) 620px, 100vw"}
+                  />
+                </Reveal>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Plan de pago y contacto */}
       <section className="bg-ink-900 py-20 text-white md:py-28">
